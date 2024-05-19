@@ -1,277 +1,419 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Karri Vamsi Krishna</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-  <style>
-    :root {
-        --primary-color: #3fafd4; /* Hot pink */
-        --secondary-color: #00BFFF; /* Deep sky blue */
-        --background-color: #FFD700; /* Gold */
-        --text-color: #000000; /* Blue violet */
-        --border-color: #FFA07A; /* Light salmon */
-      }
-      .guess-number-game {
-        display: none;
-        justify-content: center;
-        margin-top: 2rem;
-      }
-  
-      .guess-number-game input {
-        width: 50px;
-        margin-right: 10px;
-        padding: 5px;
-      }
-  
-      .guess-number-game button {
-        padding: 5px 10px;
-        cursor: pointer;
-      }
-      .game-container {
-        display: none;
-        justify-content: center;
-        margin-top: 2rem;
-      }
-  
-      .game-container table {
-        border-collapse: collapse;
-        margin-top: 1rem;
-      }
-  
-      .game-container td {
-        width: 50px;
-        height: 50px;
-        text-align: center;
-        vertical-align: middle;
-        font-size: 1.5rem;
-        border: 1px solid #ccc;
-        cursor: pointer;
-      }
-  
-      .game-container td:hover {
-        background-color: #f9f9f9;
-      }
-  
-      .game-container .btn {
-        margin-top: 1rem;
-      }
-      body {
-        font-family: 'Roboto', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: var(--background-color);
-        overflow-x: hidden;
-        transition: background-color 0.5s ease;
-        color: var(--text-color);
-      }
-      
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-      }
-      
-/* Header */
-header {
-  text-align: center;
-  padding: 2rem 0;
-  background-color: var(--primary-color);
-  color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  animation: fadeInDown 1s ease-out;
-  transition: background-color 0.3s ease;
-}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karri Vamsi Krishna</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<style>
+  :root {
+    --primary-color: #33ff9c; /* Neon Green */
+    --secondary-color: #00BFFF; /* Deep sky blue */
+    --background-color: #f5f5f5; /* Light gray */
+    --text-color: #333; /* Dark gray */
+    --border-color: #FFA07A; /* Light salmon */
+    --highlight-color: #FFD700; /* Gold */
+    --gradient-1: #33ff9c; /* Neon Green */
+    --gradient-2: #00BFFF; /* Deep sky blue */
+  }
 
-header.dark-mode {
-  background-color: #222;
-}
+  body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    overflow-x: hidden;
+    transition: background-color 0.5s ease;
+    color: var(--text-color);
+    background-image: linear-gradient(to bottom, var(--gradient-1), var(--gradient-2)); /* Gradient background */
+    background-size: cover;
+    background-attachment: fixed;
+  }
 
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    /* Add some padding to separate the content from the gradient */
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
 
-      section {
-        padding: 30px;
-        margin-bottom: 30px;
-        background-color: white;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-      }
-      
-      h1, h2, h3 {
-        margin: 0;
-        color: #333;
-      }
-      
-      h1 {
-        font-size: 2.5rem;
-        margin-bottom: 10px;
-      }
-      
-      h2 {
-        font-size: 1.8rem;
-        margin-bottom: 10px;
-      }
-      
-      p {
-        font-size: 1.1rem;
-        line-height: 1.6;
-        margin-bottom: 20px;
-      }
-      
-      ul {
-        padding: 0;
-        margin: 0;
-      }
-      
-      li {
-        list-style: none;
-        margin-bottom: 10px;
-      }
-      
-      a {
-        color: #3fafd4;
-        text-decoration: none;
-        transition: color 0.3s;
-      }
-      
-      a:hover {
-        color: #00BFFF;
-      }
-      
-      
-      /* Orange dot cursor */
-      body {
-        cursor: url('data:image/svg+xml;utf8,<svg fill="orange" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" /></svg>') 12 12, auto;
-      }
-      
-      /* Additional styles for hover effect and button */
-      .animated {
-        animation-duration: 1s;
-        animation-fill-mode: both;
-      }
-      
-      .project-cards {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: space-between;
-      }
-      
-      .project-card {
-        flex: 0 1 calc(30% - 20px);
-        background-color: #fff;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-        overflow: hidden;
-        transition: transform 0.3s;
-      }
-      
-      .project-card:hover {
-        transform: translateY(-10px);
-      }
-      
-      .project-card img {
-        width: 100%;
-        height: auto;
-        border-radius: 10px 10px 0 0;
-      }
-      
-      .project-card-content {
-        padding: 20px;
-      }
-      
-      .project-card-title {
-        font-size: 1.2rem;
-        margin-bottom: 10px;
-      }
-      
-      .project-card-description {
-        font-size: 1rem;
-        color: #555;
-        margin-bottom: 10px;
-      }
-      
-      .btn {
-        display: inline-block;
-        padding: 8px 16px;
-        background-color: #3fafd4;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-        transition: background-color 0.3s;
-      }
-      
-      .btn:hover {
-        background-color: #00BFFF;
-      }
-      
-      /* Full image view overlay */
-      .full-image-view-overlay {
-        display: none;
-        position: fixed;
-        z-index: 999;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.9);
-        overflow: auto;
-      }
-      
-      .full-image {
-        margin: auto;
-        display: block;
-        width: 60%;
-        max-width: 800px;
-        max-height: 80%;
-        margin-top: 10%;
-      }
-      
-      .close-btn {
-        position: absolute;
-        top: 15px;
-        right: 35px;
-        color: #f1f1f1;
-        font-size: 50px;
-        font-weight: bold;
-        transition: 0.3s;
-      }
-      
-      .close-btn:hover,
-      .close-btn:focus {
-        color: #bbb;
-        text-decoration: none;
-        cursor: pointer;
-      }
-      
-      .tic-tac-toe {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin-top: 2rem;
-      }
-      
-      .score {
-        margin-top: 1rem;
-        font-size: 1.2rem;
-      }
-      
-  </style>
+  /* Header */
+  header {
+    text-align: center;
+    padding: 2rem 0;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: fadeInDown 1s ease-out;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+  }
+
+  /* Section Styling */
+  section {
+    padding: 30px;
+    margin-bottom: 30px;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    animation: fadeInUp 1s ease-out; 
+  }
+
+  /* Typography */
+  h1, h2, h3 {
+    margin: 0;
+    color: var(--text-color);
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    list-style: none;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center; 
+  }
+
+  li svg {
+    margin-right: 10px;
+    fill: var(--secondary-color); /* Match the icon color to the secondary color */
+  }
+
+  /* Links */
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  a:hover {
+    color: var(--secondary-color);
+  }
+
+  /* Orange dot cursor */
+  body {
+    cursor: url('data:image/svg+xml;utf8,<svg fill="orange" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" /></svg>') 12 12, auto;
+  }
+
+  /* Project Card Styling */
+  .project-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+  }
+
+  .project-card {
+    flex: 0 1 calc(30% - 20px);
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+  }
+
+  .project-card img {
+    width: 100%;
+    height: 200px; /* Fixed height for consistent card size */
+    object-fit: cover; /* Ensure images fill the container */
+    border-radius: 10px 10px 0 0;
+  }
+
+  .project-card-content {
+    padding: 20px;
+  }
+
+  .project-card-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  .project-card-description {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+
+  /* Button Styling */
+  .btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    border: none;
+    cursor: pointer; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+
+  .btn:hover {
+    background-color: var(--secondary-color);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+  }
+
+  /* Game Styling */
+  .game-container {
+    display: none;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .game-container table {
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+
+  .game-container td {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.5rem;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s; 
+  }
+
+  .game-container td:hover {
+    background-color: #f9f9f9;
+  }
+
+  .score {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+  }
+
+  /* Guess Number Game Styling */
+  .guess-number-game {
+    display: none;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .guess-number-game input {
+    width: 50px;
+    margin-right: 10px;
+    padding: 5px;
+  }
+
+  /*  Animations  */
+  .animated {
+    animation-duration: 1s;
+    animation-fill-mode: both; 
+  }
+
+  .animated-slow {
+    animation-duration: 2s; 
+  }
+
+  .fadeInUp {
+    animation-name: fadeInUp;
+  }
+
+  .fadeInDown {
+    animation-name: fadeInDown;
+  }
+
+  .zoomIn {
+    animation-name: zoomIn;
+  }
+
+  .pulse {
+    animation-name: pulse;
+  }
+
+  .shake {
+    animation-name: shake;
+  }
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes zoomIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes shake {
+    0% {
+      transform: translateX(0);
+    }
+    10% {
+      transform: translateX(-10px);
+    }
+    20% {
+      transform: translateX(10px);
+    }
+    30% {
+      transform: translateX(-10px);
+    }
+    40% {
+      transform: translateX(10px);
+    }
+    50% {
+      transform: translateX(-10px);
+    }
+    60% {
+      transform: translateX(10px);
+    }
+    70% {
+      transform: translateX(-10px);
+    }
+    80% {
+      transform: translateX(10px);
+    }
+    90% {
+      transform: translateX(-10px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  /*  Hover Effects  */
+  .hover-effect {
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .hover-effect:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .hover-zoom {
+    transition: transform 0.3s;
+  }
+
+  .hover-zoom:hover {
+    transform: scale(1.1);
+  }
+
+  .hover-underline {
+    text-decoration: none;
+    position: relative;
+  }
+
+  .hover-underline::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--highlight-color);
+    transition: width 0.3s;
+  }
+
+  .hover-underline:hover::before {
+    width: 100%;
+  }
+
+  .hover-glow {
+    transition: box-shadow 0.3s;
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 10px var(--highlight-color);
+  }
+
+  /*  Dark Mode  */
+  .dark-mode {
+    background-color: #222;
+    color: #fff;
+  }
+
+  .dark-mode header {
+    background-color: #333;
+  }
+
+  .dark-mode a {
+    color: #fff;
+  }
+
+  .dark-mode a:hover {
+    color: #FF5733; /* Orange */
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <header class="animated fadeInDown">
-          <h1>Karri Vamsi Krishna</h1>
-          <h2>Turning Ideas into Reality | BTech CSE</h2>
-        </header>
-      </div>
-    <section id="intro" class="animated fadeInUp">
-        <u><center><h2>Passionate about exploring the cutting-edge world of AI and its transformative potential</h2></center></u>
+  <div class="container">
+    <header class="animated fadeInDown hover-effect">
+      <h1 class="hover-underline">Karri Vamsi Krishna</h1>
+      <h2 class="hover-underline">Turning Ideas into Reality | BTech CSE</h2>
+    </header>
+
+    <section id="intro" class="animated fadeInUp zoomIn">
+      <u><center><h2>Passionate about exploring the cutting-edge world of AI and its transformative potential</h2></center></u>
       <p>
         I am a Computer Science Engineering student with a passion for artificial intelligence. I am excited about the challenges and opportunities presented by the field of CSE, and am eager to be a part of the next wave of technological advancements. I am an enthusiastic learner, and am always looking to expand my knowledge and skills in the realm of AI.
       </p>
     </section>
+
     <section id="internships" class="animated fadeInUp">
       <h2>Internships</h2>
       <ul>
@@ -280,6 +422,7 @@ header.dark-mode {
         <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span>Cisco Network Academy (Packet Tracer)</span></li>
       </ul>
     </section>
+
     <section id="volunteer" class="animated fadeInUp">
       <h2>Volunteer Experience</h2>
       <ul>
@@ -287,6 +430,7 @@ header.dark-mode {
         <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span>Organized the Mystical Code Event for IEEE.</span></li>
       </ul>
     </section>
+
     <section id="skills" class="animated fadeInUp">
       <h2>Skills</h2>
       <ul>
@@ -296,73 +440,73 @@ header.dark-mode {
         <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span>Data Structures: Algorithms, Data Analysis.</span></li>
       </ul>
     </section>
+
     <section id="projects" class="animated fadeInUp">
-        <h2>Projects</h2>
-        <div class="project-cards">
-          <div class="project-card">
-            <img src="Code_gen.jpeg" alt="Project 1">
-            <div class="project-card-content">
-              <h3 class="project-card-title">Advanced AI Talkative Chatbot</h3>
-              <p class="project-card-description">An advanced chatbot powered by AI, designed to engage users in meaningful conversations.</p>
-            </div>
-          </div>
-          <div class="project-card">
-            <img src="Career.png" alt="Project 2">
-            <div class="project-card-content">
-              <h3 class="project-card-title">Career Guidance using A.I</h3>
-              <p class="project-card-description">An AI-powered system that provides personalized career guidance based on individual interests and skills.</p>
-            </div>
-          </div>
-          <div class="project-card">
-            <img src="Nexus.png" alt="Project 3">
-            <div class="project-card-content">
-              <h3 class="project-card-title">KV Nexus: Your AI-Powered Web Companion</h3>
-              <button class="btn" onclick="window.open('https://kv-nexus.onrender.com', '_blank')">Click me</button>
-            </div>
+      <h2>Projects</h2>
+      <div class="project-cards">
+        <div class="project-card hover-zoom">
+          <img src="Code_gen.jpeg" alt="Project 1">
+          <div class="project-card-content">
+            <h3 class="project-card-title">Advanced AI Talkative Chatbot</h3>
+            <p class="project-card-description">An advanced chatbot powered by AI, designed to engage users in meaningful conversations.</p>
           </div>
         </div>
-      </section>
-      <section id="contact" class="animated fadeInUp">
-        <h2>Contact</h2>
-        <p><a href="mailto:21131A05C6@gvpce.ac.in">21131A05C6@gvpce.ac.in</a></p>
-      </section>
-      <section id="game" class="animated fadeInUp">
-        <h2>Play Tic Tac Toe with Friends</h2>
-        <div class="game-container">
-          <table>
-            <tr>
-              <td onclick="makeMove(0, 0)"></td>
-              <td onclick="makeMove(0, 1)"></td>
-              <td onclick="makeMove(0, 2)"></td>
-            </tr>
-            <tr>
-              <td onclick="makeMove(1, 0)"></td>
-              <td onclick="makeMove(1, 1)"></td>
-              <td onclick="makeMove(1, 2)"></td>
-            </tr>
-            <tr>
-              <td onclick="makeMove(2, 0)"></td>
-              <td onclick="makeMove(2, 1)"></td>
-              <td onclick="makeMove(2, 2)"></td>
-            </tr>
-          </table>
-          <div class="score">Score: <span id="score">0 - 0</span></div>
-          <button class="btn" onclick="resetGame()">Reset Game</button>
+        <div class="project-card hover-zoom">
+          <img src="Career.png" alt="Project 2">
+          <div class="project-card-content">
+            <h3 class="project-card-title">Career Guidance using A.I</h3>
+            <p class="project-card-description">An AI-powered system that provides personalized career guidance based on individual interests and skills.</p>
+          </div>
         </div>
-      </section>
-      <section id="guess-number-game" class="animated fadeInUp">
-        <h2>Guess the Number Game</h2>
-        <p>I'm thinking of a number between 1 and 100. Can you guess it?</p>
-        <div class="guess-number-game">
-          <input type="number" id="guess" min="1" max="100">
-          <button onclick="checkGuess()">Guess</button>
+        <div class="project-card hover-zoom">
+          <img src="Nexus.png" alt="Project 3">
+          <div class="project-card-content">
+            <h3 class="project-card-title">KV Nexus: Your AI-Powered Web Companion</h3>
+            <button class="btn hover-glow" onclick="window.open('https://kv-nexus.onrender.com', '_blank')">Click me</button>
+          </div>
         </div>
-      </section>
-    <div class="full-image-view-overlay" onclick="hideImage()">
-      <img class="full-image" src="" alt="Full Image">
-      <a class="close-btn" onclick="hideImage()">&times;</a>
-    </div>
-  </div>
+      </div>
+    </section>
+
+    <section id="contact" class="animated fadeInUp">
+      <h2>Contact</h2>
+      <p><a href="mailto:21131A05C6@gvpce.ac.in" class="hover-underline">21131A05C6@gvpce.ac.in</a></p>
+    </section>
+
+    <section id="game" class="animated fadeInUp shake">
+      <h2>Play Tic Tac Toe with Friends</h2>
+      <div class="game-container">
+        <table>
+          <tr>
+            <td onclick="makeMove(0, 0)"></td>
+            <td onclick="makeMove(0, 1)"></td>
+            <td onclick="makeMove(0, 2)"></td>
+          </tr>
+          <tr>
+            <td onclick="makeMove(1, 0)"></td>
+            <td onclick="makeMove(1, 1)"></td>
+            <td onclick="makeMove(1, 2)"></td>
+          </tr>
+          <tr>
+            <td onclick="makeMove(2, 0)"></td>
+            <td onclick="makeMove(2, 1)"></td>
+            <td onclick="makeMove(2, 2)"></td>
+          </tr>
+        </table>
+        <div class="score">Score: <span id="score">0 - 0</span></div>
+        <button class="btn hover-glow" onclick="resetGame()">Reset Game</button>
+      </div>
+    </section>
+
+    <section id="guess-number-game" class="animated fadeInUp pulse">
+      <h2>Guess the Number Game</h2>
+      <p>I'm thinking of a number between 1 and 100. Can you guess it?</p>
+      <div class="guess-number-game">
+        <input type="number" id="guess" min="1" max="100">
+        <button class="btn hover-glow" onclick="checkGuess()">Guess</button>
+      </div>
+    </section>
+ 
   <script>
     
     function showImage(input) {
